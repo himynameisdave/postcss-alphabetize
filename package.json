@@ -1,0 +1,30 @@
+{
+  "name": "postcss-alphabetize",
+  "version": "0.1.0",
+  "description": "PostCSS plugin that alphabetizes CSS properties within a given selector.",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "alphabetize",
+    "order",
+    "organization",
+    "formatting"
+  ],
+  "author": "dlunny <dlunny@featurecreeptechnology.com>",
+  "license": "MIT",
+  "repository": "himynameisdave/postcss-alphabetize",
+  "bugs": {
+    "url": "https://github.com/himynameisdave/postcss-alphabetize/issues"
+  },
+  "homepage": "https://github.com/himynameisdave/postcss-alphabetize",
+  "dependencies": {
+    "postcss": "^5.0.10"
+  },
+  "devDependencies": {
+    "tape": "^4.2.0"
+  },
+  "scripts": {
+    "test": "tape test"
+  }
+}

@@ -1,0 +1,17 @@
+.tomato {
+  align-items: center;
+  appearance: none;
+  background-color: tomato;
+  border-radius: 100%;
+  display: flex;
+  font-family: sans-serif;
+  font-size: 2rem;
+  font-style: italic;
+  height: 100px;
+  line-height: 1.6181;
+  margin: 0 auto;
+  position: absolute;
+  transition: background-color 0.35s ease-in;
+  width: 100px;
+  z-index: 1;
+}
