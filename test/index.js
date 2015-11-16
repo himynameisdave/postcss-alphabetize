@@ -26,3 +26,8 @@ var fs       = require('fs'),
       compareFixtures(t, "alphabetize", "should alphabetize the props");
       t.end();
     });
+
+    test( "prefixes", function(t){
+      compareFixtures(t, "prefixes", "should alphabetize the props, maintaining prefixes");
+      t.end();
+    });
