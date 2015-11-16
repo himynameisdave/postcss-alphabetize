@@ -15,3 +15,9 @@
   font-family: sans-serif;
   line-height: 1.6181;
 }
+
+.blue {
+  width: 200px;
+  background: blue;
+  height: 200px;
+}
