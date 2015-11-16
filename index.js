@@ -29,11 +29,14 @@ module.exports = postcss.plugin('postcss-alphabetize', function (opts) {
             val:  decl.value
           });
         })
-        //  set those nodes
+        let cleanDecls = sortArr( dirtyDecls, 'prop' );
+        //  set those nodes?
         rule.nodes.forEach( function(decl, index) {
           rule.nodes[index].prop = cleanDecls[index].prop;
           rule.nodes[index].value = cleanDecls[index].val;
         });
+
       });
+
     };
 });
