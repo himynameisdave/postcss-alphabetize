@@ -5,6 +5,7 @@
   appearance: none;
   -moz-transition: opacity 1s;
   display: flex;
+  -o-transition: opacity 1s;
   -webkit-flex-direction: row;
   flex-direction: row;
   display: -webkit-flex;
