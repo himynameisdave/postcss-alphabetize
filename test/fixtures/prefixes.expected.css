@@ -1,12 +1,12 @@
 .prefixes {
   -webkit-appearance: none;
   appearance: none;
-  display: -webkit-flex;
   display: flex;
+  display: -webkit-flex;
   -webkit-flex-direction: row;
   flex-direction: row;
-  -moz-transition: opacity 1s;
   -o-transition: opacity 1s;
+  -moz-transition: opacity 1s;
   -webkit-transition: opacity 1s;
   transition: opacity 1s;
 }

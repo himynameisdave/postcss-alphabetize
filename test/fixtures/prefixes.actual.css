@@ -5,8 +5,8 @@
   display: -webkit-flex;
   -webkit-flex-direction: row;
   flex-direction: row;
-  transition: opacity 1s;
-  -webkit-transition: opacity 1s;
-  -moz-transition: opacity 1s;
   -o-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
 }

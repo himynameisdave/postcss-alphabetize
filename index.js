@@ -8,13 +8,15 @@ module.exports = postcss.plugin('postcss-alphabetize', function (opts) {
     // Work with options here
 
 
-
-
+    //  our list of prefixes available for all fns
+    const prefixes = [ '-webkit-', '-moz-', '-ms-', '-o-' ],
     //  Returns an array that is alphabatized by a given prop
-    const sortArr = (arr, prop) => {
+    sortArr = (arr, prop) => {
       return arr.sort( (a1, a2) => {
         if( a1[prop] < a2[prop] ) return -1;
         if( a1[prop] > a2[prop] ) return 1;
+        if( a1.sortOrder < a2.sortOrder ) return 1;
+        if( a2.sortOrder < a1.sortOrder ) return -1;
         return 0;
       });
     },
@@ -22,7 +24,6 @@ module.exports = postcss.plugin('postcss-alphabetize', function (opts) {
     //  returns an object with a boolean (if there is a prefix)
     //    and it returns what prefix
     checkPrefixes = ( prop ) => {
-      const prefixes = [ '-webkit-', '-moz-', '-ms-', '-o-' ];
       let prefix = {
         isPrefixed: false
       };
@@ -52,7 +53,24 @@ module.exports = postcss.plugin('postcss-alphabetize', function (opts) {
           }
           dirtyDecls.push(dirtyDeclare);
         })
-        let cleanDecls = sortArr( dirtyDecls, 'sortName' );
+        //  this goes through to apply a sort order to wherever there are prefixes
+        let withSortOrder = dirtyDecls.map( d => {
+          if( !d.prefixed.isPrefixed ){
+            d.sortOrder = 0;
+            return d;
+          }
+          // iterate over the prefix list to apply a sortOrder number to this
+          prefixes.forEach( (pre, i) => {
+            if( d.prefixed.prefix === pre ){
+              d.sortOrder = i+1;
+            }
+          });
+          return d;
+        });
+
+        // let cleanDecls = sortArr( dirtyDecls, 'sortName' );
+        let cleanDecls = sortArr( withSortOrder, 'sortName' );
+
         //  set those nodes?
         rule.nodes.forEach( function(decl, index) {
           rule.nodes[index].prop = cleanDecls[index].prop;
